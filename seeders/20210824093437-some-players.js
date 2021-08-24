@@ -105,7 +105,7 @@ module.exports = {
         {
           name: "Barthez",
           nationality: "FR",
-          age: 33,
+          age: 38,
           teamId: 5,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -121,7 +121,7 @@ module.exports = {
         {
           name: "Maradona",
           nationality: "AR",
-          age: 33,
+          age: 37,
           teamId: 3,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -145,7 +145,7 @@ module.exports = {
         {
           name: "Maldini",
           nationality: "IT",
-          age: 36,
+          age: 40,
           teamId: 6,
           createdAt: new Date(),
           updatedAt: new Date(),
