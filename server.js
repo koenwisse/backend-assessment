@@ -10,6 +10,6 @@ app.use(express.json());
 
 app.use("/auth", authRouter);
 app.use("/teams", teamsRouter);
-app.use("players", playersRouter);
+app.use("/players", playersRouter);
 
 app.listen(PORT, () => console.log(`Server started in port: ${PORT}`));

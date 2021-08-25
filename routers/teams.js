@@ -5,6 +5,8 @@ const router = new Router();
 const Team = require("../models").team;
 const Player = require("../models").player;
 
+// YELLOW REQUIREMENTS
+
 // GET ALL TEAMS
 router.get("/", async (req, res, next) => {
   try {

@@ -9,4 +9,6 @@
 ## Green Requeriments
 
 - GET all players above X age
-- DELETE a specific player
+- DELETE a specific player, protected route
+- POST create new user
+- POST create login endpoint

@@ -6,6 +6,7 @@ function toJWT(data) {
 }
 
 function toData(token) {
+  console.log("GOT HERE");
   return jwt.verify(token, TOKEN_SECRET);
 }
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const { Router } = express;
 const router = new Router();
+const authMiddleware = require("../auth/authMiddleware");
 
 const Player = require("../models").player;
 
@@ -10,6 +11,7 @@ const { Op } = require("sequelize");
 
 // GET ALL PLAYERS
 router.get("/", async (req, res, next) => {
+  console.log("GOT HERE");
   try {
     const players = await Player.findAll();
 
@@ -98,7 +100,7 @@ router.get("/filter", async (req, res, next) => {
 });
 
 // DELETE X PLAYER
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id", authMiddleware, async (req, res, next) => {
   try {
     const { id } = req.params;
     if (!id) {
