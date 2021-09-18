@@ -27,7 +27,6 @@ router.get("/:teamId", async (req, res, next) => {
   try {
     const teamId = req.params.teamId;
 
-    // SOLUTION WITH RELATION
     const team = await Team.findByPk(teamId, { include: { model: Player } });
 
     if (team) {
@@ -35,14 +34,6 @@ router.get("/:teamId", async (req, res, next) => {
     } else {
       res.status(404).send("No team found");
     }
-
-    // SOLUTION WITHOUT RELATION
-    // const players = await Player.findAll({ where: { teamId } });
-    // if (players.length > 0) {
-    //   res.status(200).send(players);
-    // } else {
-    //   res.status(404).send("No players found");
-    // }
   } catch (error) {
     next(error);
   }
@@ -61,7 +52,7 @@ router.put("/:teamId", async (req, res, next) => {
       if (!teamToUpdate) {
         res.status(404).send("Team not found.");
       } else {
-        const updatedTeam = await teamToUpdate.update(req.body);
+        const updatedTeam = await teamToUpdate.update({ titles });
         res.status(200).send(updatedTeam);
       }
     }
