@@ -9,22 +9,6 @@ const { Op } = require("sequelize");
 
 // YELLOW REQUIREMENTS
 
-// GET ALL PLAYERS
-router.get("/", async (req, res, next) => {
-  console.log("GOT HERE");
-  try {
-    const players = await Player.findAll();
-
-    if (players.length > 0) {
-      res.status(200).send(players);
-    } else {
-      res.status(404).send("No players found");
-    }
-  } catch (error) {
-    res.status(400).send("Something went wrong.");
-  }
-});
-
 // POST - CREATE NEW PLAYER
 router.post("/", async (req, res, next) => {
   try {
@@ -39,8 +23,11 @@ router.post("/", async (req, res, next) => {
     } else {
       const newPlayer = await Player.create({ name, age, nationality, teamId });
 
-      if (!newPlayer) res.status(400).send("Something went wrong");
-      res.status(200).send(newPlayer);
+      if (!newPlayer) {
+        res.status(400).send("Something went wrong");
+      } else {
+        res.status(200).send(newPlayer);
+      }
     }
   } catch (error) {
     res.status(400).send("Something went wrong.");
@@ -48,27 +35,6 @@ router.post("/", async (req, res, next) => {
 });
 
 // GREEN REQUIREMENTS
-
-// GET a specific player
-router.get("/:id", async (req, res, next) => {
-  try {
-    const { id } = req.params;
-
-    if (!id) {
-      res.status(400).send("Please provide a player ID");
-    } else {
-      const player = await Player.findByPk(id);
-
-      if (player) {
-        res.status(200).send(player);
-      } else {
-        res.status(404).send("No player found");
-      }
-    }
-  } catch (error) {
-    res.status(400).send("Something went wrong.");
-  }
-});
 
 // GET ALL PLAYERS ABOVE X AGE (EITHER DIRECTLY ON QUERY || FILTER AFTERWARDS)
 // HTTPie requests with query strings must be in quotes, i.e. ":4000/players/filter?age=30" in place of :4000/players/filter?age=30

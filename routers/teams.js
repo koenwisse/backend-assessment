@@ -52,7 +52,7 @@ router.put("/:teamId", async (req, res, next) => {
       if (!teamToUpdate) {
         res.status(404).send("Team not found.");
       } else {
-        const updatedTeam = await teamToUpdate.update(req.body);
+        const updatedTeam = await teamToUpdate.update({ titles });
         res.status(200).send(updatedTeam);
       }
     }
