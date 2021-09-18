@@ -81,7 +81,7 @@ router.get("/filter", async (req, res, next) => {
     } else {
       // FILTER ON QUERY
       const filteredPlayers = await Player.findAll({
-        where: { age: { [Op.gte]: age } },
+        where: { age: { [Op.gt]: age } },
       });
 
       // FILTER AFTERWARDS
