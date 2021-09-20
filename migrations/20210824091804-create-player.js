@@ -10,12 +10,18 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       age: {
         type: Sequelize.INTEGER,
+        allowNull: false,
       },
       nationality: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      profilePicture: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,

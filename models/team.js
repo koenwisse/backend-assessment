@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   team.init(
     {
-      name: DataTypes.STRING,
-      country: DataTypes.STRING,
-      founded: DataTypes.INTEGER,
-      titles: DataTypes.INTEGER,
+      name: { type: DataTypes.STRING, allowNull: false },
+      country: { type: DataTypes.STRING, allowNull: false },
+      founded: { type: DataTypes.INTEGER, allowNull: false },
+      titles: { type: DataTypes.INTEGER, allowNull: false },
     },
     {
       sequelize,

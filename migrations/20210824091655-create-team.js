@@ -10,15 +10,19 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       country: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       founded: {
         type: Sequelize.INTEGER,
+        allowNull: false,
       },
       titles: {
         type: Sequelize.INTEGER,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
