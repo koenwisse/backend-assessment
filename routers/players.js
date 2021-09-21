@@ -9,6 +9,11 @@ const { Op } = require("sequelize");
 
 // YELLOW REQUIREMENTS
 
+router.get("/", async (req, res, next) => {
+  const players = await Player.findAll();
+  res.send(players);
+});
+
 // POST - CREATE NEW PLAYER
 router.post("/", async (req, res, next) => {
   try {
