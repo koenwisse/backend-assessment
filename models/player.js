@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       name: { type: DataTypes.STRING, allowNull: false },
       age: { type: DataTypes.INTEGER, allowNull: false },
       nationality: { type: DataTypes.STRING, allowNull: false },
-      profilePicture: { type: DataTypes.STRING },
+      profilePicture: { type: DataTypes.TEXT },
     },
     {
       sequelize,
