@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       country: { type: DataTypes.STRING, allowNull: false },
       founded: { type: DataTypes.INTEGER, allowNull: false },
       titles: { type: DataTypes.INTEGER, allowNull: false },
+      championsLeagueParticipant: { type: DataTypes.BOOLEAN, allowNull: false },
     },
     {
       sequelize,
