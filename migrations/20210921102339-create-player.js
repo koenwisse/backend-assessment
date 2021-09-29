@@ -23,6 +23,10 @@ module.exports = {
       profilePicture: {
         type: Sequelize.TEXT,
       },
+      retired: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
