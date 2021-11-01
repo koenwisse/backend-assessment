@@ -4,15 +4,9 @@ const router = new Router();
 const authMiddleware = require("../auth/authMiddleware");
 
 const Player = require("../models").player;
+const Team = require("../models").team;
 
 const { Op } = require("sequelize");
-
-// YELLOW REQUIREMENTS
-
-router.get("/", async (req, res, next) => {
-  const players = await Player.findAll();
-  res.send(players);
-});
 
 // POST - CREATE NEW PLAYER
 router.post("/", async (req, res, next) => {
@@ -26,12 +20,23 @@ router.post("/", async (req, res, next) => {
           "Missing parameters. Please provide the name, age, nationality, and teamId of the player."
         );
     } else {
-      const newPlayer = await Player.create({ name, age, nationality, teamId });
+      const teamExists = await Team.findByPk(teamId);
 
-      if (!newPlayer) {
-        res.status(400).send("Something went wrong");
+      if (!teamExists) {
+        res.status(404).send("Team with the id provided does not exist.");
       } else {
-        res.status(200).send(newPlayer);
+        const newPlayer = await Player.create({
+          name,
+          age,
+          nationality,
+          teamId,
+        });
+
+        if (!newPlayer) {
+          res.status(400).send("Something went wrong");
+        } else {
+          res.status(200).send(newPlayer);
+        }
       }
     }
   } catch (error) {
