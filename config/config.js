@@ -1,8 +1,6 @@
-const { POSTGRES_URL } = require("./constants");
-
 module.exports = {
   development: {
-    url: POSTGRES_URL,
+    url: "postgres://pyybkudk:BkXapjBJXjl9R8ClEL7GG6vaUCzIsEax@abul.db.elephantsql.com/pyybkudk",
     dialect: "postgres",
   },
   test: {
